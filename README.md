@@ -1,7 +1,7 @@
 # RESTCountries 
 ### Описание:
 #### Получения информаци о странах.
- Сторонний сервис [RestCountries.com](https://restcountries.com/)
+Запросы отправляются на сторонний сервис [RestCountries.com](https://restcountries.com/)
 
 #### Функциональность проекта
 #### Возможности клиента:

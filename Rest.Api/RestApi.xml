@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api.RestCountries</name>
+    </assembly>
+    <members>
+        <member name="M:Api.RestCountries.Controllers.CountriesController.GetAllCountries">
+            <summary>
+            Возвращает список стран
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.RestCountries.Controllers.CountriesController.GetCountryByName(System.String)">
+            <summary>
+            Возвращает страну по именни
+            </summary>
+            <param name="name">Название страны</param> 
+            <returns></returns>
+        </member>
+        <member name="M:Api.RestCountries.Controllers.CountriesController.GetCountryByFullName(System.String,System.Boolean)">
+            <summary>
+            Возвращает страну по полному именни
+            </summary>
+            /// <param name="name">Название страны</param> 
+            <returns></returns>
+        </member>
+    </members>
+</doc>

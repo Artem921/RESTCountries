@@ -1,9 +1,7 @@
-﻿using Api.RestCountries.Tools.Mapper;
-using AutoMapper;
+﻿using AutoMapper;
 using Client.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models.DTO;
-using Models.Models;
 
 namespace Api.RestCountries.Controllers
 {
@@ -48,7 +46,7 @@ namespace Api.RestCountries.Controllers
         {
             var country = await countryService.GetCountryByName(name);
 
-            var countryDTO = mapper.Map<CountryDetailDTO>(country[0]);
+            var countryDTO = mapper.Map<CountryDetailDTO>(country.FirstOrDefault());
 
             return countryDTO;
         }
@@ -63,7 +61,7 @@ namespace Api.RestCountries.Controllers
         {
             var country = await countryService.GetCountryByFullName(name,fullText);
 
-            var countryDetailDTO = mapper.Map<CountryDetailDTO>(country[0]);
+            var countryDetailDTO = mapper.Map<CountryDetailDTO>(country.FirstOrDefault());
 
             return countryDetailDTO;
         }

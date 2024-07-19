@@ -7,7 +7,7 @@ namespace Client.Service
 {
     public class CountryClient : BaseClient, ICountrieyService
     {
-        public CountryClient() : base(ConfigurationApplication.AppSetting["ResCountries:Countries"]) { }
+        public CountryClient(IHttpClientFactory clientFactory) : base(ConfigurationApplication.AppSetting["ResCountries:Countries"],clientFactory) { }
 
 
         public async Task <IEnumerable<Country>> GetAllCounties()

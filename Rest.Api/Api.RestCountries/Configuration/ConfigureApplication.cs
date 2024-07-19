@@ -1,4 +1,5 @@
 ﻿using Client.Service;
+using Client.Services.Abstract;
 using Client.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 
@@ -9,6 +10,7 @@ namespace Api.RestCountries.Configuration
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddTransient<ICountrieyService,CountryClient>();
+            services.AddHttpClient<BaseClient>();
             services.AddEndpointsApiExplorer();
             services.AddControllers();
             services.AddAutoMapper(typeof(Program));

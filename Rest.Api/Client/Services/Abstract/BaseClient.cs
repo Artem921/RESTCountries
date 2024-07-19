@@ -1,21 +1,21 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 namespace Client.Services.Abstract
 {
     public abstract class BaseClient : IDisposable
     {
+        protected readonly IHttpClientFactory clientFactory;
         protected readonly HttpClient client;
         protected readonly string serviceAddress;
 
-        protected BaseClient(string ServiceAddress)
+        protected BaseClient(string ServiceAddress, IHttpClientFactory clientFactory = null)
         {
             serviceAddress = ServiceAddress;
 
-            var handler = new HttpClientHandler();
+            this.clientFactory = clientFactory;
 
-            handler.AllowAutoRedirect = false;
-
-            client = new HttpClient(handler)
+            client = clientFactory.CreateClient();
             {
 
             };
@@ -36,8 +36,6 @@ namespace Client.Services.Abstract
                 }               
             }
             catch { Console.WriteLine("Произошла какая то ошибка или нет соединения с сервером!"); }
-
-            finally { client.Dispose(); }
 
             return new T();
 
